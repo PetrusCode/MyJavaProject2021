@@ -21,5 +21,23 @@ public class Calculator {
 	{
 		return num1 / num2;
 	}
+	
+	public int arraySum() {
+		int paresSum = 0;
+		int[] matrix = new int[100];
+		
+		
+		
+		for(int index = 0; index<matrix.length;index++) {
+			
+			if(index%2==0) {
+				paresSum+=index;
+			}
+		}
+		System.out.println(matrix);
+		return paresSum;
+	}
+	
+	
 }	
 	

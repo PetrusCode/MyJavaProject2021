@@ -32,5 +32,12 @@ public class CalculatorIntegrationTest {
 		Calculator calculator4 = new Calculator();
 		assertEquals(calculator4.divide(100, 100),1);
 	}
+	
+	@Test
+	public void testSumPares() {
+		Calculator calculator4 = new Calculator();
+		assertEquals(calculator4.arraySum(),2450);
+	}
+	
 
 }

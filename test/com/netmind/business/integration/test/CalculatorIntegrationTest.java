@@ -35,8 +35,8 @@ public class CalculatorIntegrationTest {
 	
 	@Test
 	public void testSumPares() {
-		Calculator calculator4 = new Calculator();
-		assertEquals(calculator4.arraySum(),2450);
+		Calculator calculator5 = new Calculator();
+		assertEquals(calculator5.arraySum(),2450);
 	}
 	
 

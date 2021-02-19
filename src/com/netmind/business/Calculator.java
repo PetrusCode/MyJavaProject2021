@@ -34,7 +34,7 @@ public class Calculator {
 				paresSum+=index;
 			}
 		}
-		System.out.println(matrix);
+		
 		return paresSum;
 	}
 	

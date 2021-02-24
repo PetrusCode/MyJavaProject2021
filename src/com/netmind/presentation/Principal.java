@@ -1,9 +1,6 @@
 package com.netmind.presentation;
 
-import java.util.Scanner;
 
-import com.netmind.business.StudentBl;
-import com.netmind.model.Student;
 
 public class Principal {
 
@@ -11,17 +8,10 @@ public class Principal {
 		// TODO Auto-generated method stub
 		// Los text de integracion son los que prueban el codigo real y los
 		// servicios reales
-		Scanner scanner = new Scanner(System.in);
-		Student student = new Student();
-		StudentBl studentBl = new StudentBl();
-
 		System.out.println(
-				"¿Que opcion quiere seleccionar?\n 1.Agrgar \n 2.Exit");
-
-		Menu.menu(student);
-
-		studentBl.add(student);
-		System.out.println(student);
+			"Que opcion quiere seleccionar?"
+			+ "\n 1.Agregar \n 2.Calular estudiante con mayor edad \n 3.Calular la media de edad \n 4.Exit");
+		Menu.studentMenu();
 
 	}
 

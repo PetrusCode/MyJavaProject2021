@@ -5,10 +5,17 @@ import java.util.ArrayList;
 import com.netmind.model.Student;
 
 public class StudentDao {
-	public static ArrayList<Student> arrayStudent = new ArrayList<Student>();
+	private static ArrayList<Student> arrayStudent = null;
+
+	static {
+		arrayStudent = new ArrayList<Student>();
+	}
 
 	public boolean add(Student student) {
-		return arrayStudent.add(student);
+		for (int iterator = 0; iterator < arrayStudent.size(); iterator++) {
+			System.out.println(arrayStudent.get(iterator));
 
+		}
+		return arrayStudent.add(student);
 	}
 }

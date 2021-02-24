@@ -1,5 +1,7 @@
 package com.netmind.presentation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.UUID;
 
@@ -10,52 +12,64 @@ import com.netmind.model.Student;
 
 public class Menu {
 
-	static Scanner scanner = new Scanner(System.in);
-
-	public static Student menu(Student student) {
+	public static void studentMenu() {
+		StudentBl studentBl = new StudentBl();
+		Scanner scanner = new Scanner(System.in);
 		int opcion = 0;
 
 		do {
 
 			try {
 				opcion = Integer.parseInt(JOptionPane
-						.showInputDialog("¿Que opcion quiere seleccionar?"
-								+ "\n 1.Agregar \n 2.Calular estudiante con mayor edad \n 3.Calular la media de edad \n 2.Exit"));
+						.showInputDialog("Que opcion quiere seleccionar?"
+								+ "\n 1.Agregar \n 2.Calular estudiante con mayor edad \n 3.Calular la media de edad \n 4.Exit"));
 			} catch (Exception e) {
 				System.out.println("Introduzca un numero " + e);
 
 			}
-			if (opcion == 1) {
-				StudentBl studentBl = new StudentBl();
-				System.out.println("Agregar nuevo estudiante");
-
-				String uuid = UUID.randomUUID().toString();
-
-				student.setIdStudent(uuid);
-				System.out.println("Nombre");
-
-				String name = scanner.nextLine();
-				student.setName(name);
-
-				System.out.println("Apellido");
-
-				String surname = scanner.nextLine();
-				student.setSurname(surname);
-
-				System.out.println("Fecha de nacimiento (dd/mm/yy");
-				String dateOfBirth = scanner.nextLine();
-
-			} else if (opcion == 2) {
+			switch (opcion) {
+			case 1:
+				Student student = new Student();
+				addnewStudents(student, scanner);
+				studentBl.add(student);
+				break;
+			case 2:
 				System.out.println("Calcular el estudiante con mayor edad");
-			} else if (opcion == 3) {
+				break;
+			case 3:
 				System.out.println(
 						"Calcular la media de edad de todos los estudiantes ");
-			} else if (opcion == 4) {
+				break;
+			case 4:
 				System.out.println("Salir");
+				scanner.close();
+				break;
 			}
 		} while ((opcion == 1 == false) && (opcion == 2 == false)
 				&& (opcion == 3 == false) && (opcion == 4 == false));
-		return student;
+
 	}
 
+	private static void addnewStudents(Student student, Scanner scanner) {
+		System.out.println("Agregar nuevo estudiante");
+
+		String uuid = UUID.randomUUID().toString();
+
+		student.setIdStudent(uuid);
+		System.out.println("Nombre");
+		student.setName(scanner.nextLine());
+
+		System.out.println("Apellido");
+		student.setSurname(scanner.nextLine());
+		System.out.println("Introduce fecha de nacimiento");
+
+		try {
+			student.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy")
+					.parse(scanner.nextLine()));
+		} catch (ParseException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+
+	}
 }

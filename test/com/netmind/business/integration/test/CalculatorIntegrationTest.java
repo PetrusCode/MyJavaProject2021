@@ -7,12 +7,12 @@ import org.junit.Test;
 import com.netmind.business.Calculator;
 
 public class CalculatorIntegrationTest {
-	//Tests de integracion
+	// Tests de integracion
 	@Test
 	public void testAdd() {
 		Calculator calculator = new Calculator();
-		assertEquals(calculator.add(4,2), 6);
-		
+		assertEquals(calculator.add(4, 2), 6);
+
 	}
 
 	@Test
@@ -30,14 +30,13 @@ public class CalculatorIntegrationTest {
 	@Test
 	public void testDivide() {
 		Calculator calculator4 = new Calculator();
-		assertEquals(calculator4.divide(100, 100),1);
+		assertEquals(calculator4.divide(100, 100), 1);
 	}
-	
+
 	@Test
 	public void testSumPares() {
 		Calculator calculator5 = new Calculator();
-		assertEquals(calculator5.arraySum(),2450);
+		assertEquals(calculator5.arraySum(), 2450);
 	}
-	
 
 }

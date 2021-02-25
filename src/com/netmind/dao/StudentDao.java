@@ -18,4 +18,10 @@ public class StudentDao {
 		}
 		return arrayStudent.add(student);
 	}
+
+	public boolean addStudentsinFile(Student student) {
+		return arrayStudent.add(student);
+
+	}
+
 }

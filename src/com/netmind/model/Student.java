@@ -2,19 +2,19 @@ package com.netmind.model;
 
 import java.util.Date;
 
-public class Student {
+public class Student extends NetmindObject {
 
-	private String idStudent;
+	private Integer idStudent;
 	private String name;
 	private String surname;
 	private Integer age;
 	private Date dateOfBirth;
 
-	public String getIdStudent() {
+	public Integer getIdStudent() {
 		return idStudent;
 	}
 
-	public void setIdStudent(String idStudent) {
+	public void setIdStudent(Integer idStudent) {
 		this.idStudent = idStudent;
 	}
 
@@ -50,8 +50,7 @@ public class Student {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Student(String idStudent, String name, String surname, Integer age,
-			Date dateOfBirth) {
+	public Student(Integer idStudent, String name, String surname, Integer age, Date dateOfBirth) {
 		super();
 		this.idStudent = idStudent;
 		this.name = name;
@@ -86,10 +85,8 @@ public class Student {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((age == null) ? 0 : age.hashCode());
-		result = prime * result
-				+ ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
-		result = prime * result
-				+ ((idStudent == null) ? 0 : idStudent.hashCode());
+		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
+		result = prime * result + ((idStudent == null) ? 0 : idStudent.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		return result;

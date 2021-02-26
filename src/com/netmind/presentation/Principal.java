@@ -2,8 +2,6 @@ package com.netmind.presentation;
 
 import java.io.IOException;
 
-import com.netmind.dao.FileManagementsDao;
-
 public class Principal {
 
 	public static void main(String[] args) throws IOException {
@@ -14,8 +12,6 @@ public class Principal {
 		System.out.println("Que opcion quiere seleccionar?"
 				+ "\n 1.Agregar \n 2.Calular estudiante con mayor edad \n 3.Calular la media de edad \n 4.Exit");
 		Menu.studentMenu();
-		FileManagementsDao.addTxtStudent(
-				"C:\\Users\\PetrusPC\\eclipse-workspace\\JEE\\MyFirstJavaProject2021\\txtDb\\Students.txt");
 
 	}
 

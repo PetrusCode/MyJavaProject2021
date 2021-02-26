@@ -9,6 +9,7 @@ public class Student extends NetmindObject {
 	private String surname;
 	private Integer age;
 	private Date dateOfBirth;
+	private static int contador;
 
 	public Integer getIdStudent() {
 		return idStudent;
@@ -57,10 +58,11 @@ public class Student extends NetmindObject {
 		this.surname = surname;
 		this.age = age;
 		this.dateOfBirth = dateOfBirth;
+
 	}
 
 	public Student() {
-
+		this.idStudent = ++Student.contador;
 	}
 
 	@Override

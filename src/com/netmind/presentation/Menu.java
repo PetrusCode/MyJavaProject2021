@@ -1,5 +1,6 @@
 package com.netmind.presentation;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
@@ -7,12 +8,13 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import com.netmind.business.StudentBl;
+import com.netmind.dao.FileManagementsDao;
 import com.netmind.model.EnumStudent;
 import com.netmind.model.Student;
 
 public class Menu {
 
-	public static void studentMenu() {
+	public static void studentMenu() throws IOException {
 		StudentBl studentBl = new StudentBl();
 		Scanner scanner = new Scanner(System.in);
 		int opcion = 0;
@@ -52,7 +54,7 @@ public class Menu {
 		scanner.close();
 	}
 
-	private static void addnewStudents(Student student, Scanner scanner) {
+	private static void addnewStudents(Student student, Scanner scanner) throws IOException {
 		System.out.println("Agregar nuevo estudiante");
 
 		System.out.println("Nombre");
@@ -67,6 +69,14 @@ public class Menu {
 		} catch (ParseException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
+		}
+		System.out.println("Introduce nombre del archivo");
+		try {
+			FileManagementsDao.addTxtStudent("./txtDb/" + scanner.nextLine());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw e;
 		}
 
 	}

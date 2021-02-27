@@ -1,5 +1,6 @@
 package com.netmind.dao;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,21 +19,29 @@ public class StudentDao {
 			System.out.println(arrayStudent.get(iterator));
 
 		}
-		addStudentsinFile(student);
+		try {
+			addStudentsinFile(student);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		return arrayStudent.add(student);
 
 	}
 
-	public void addStudentsinFile(Student student) {
-		try (FileWriter writer = new FileWriter("./txtDb/Students.txt", true);) {
-			writer.write(student.toString());
-			writer.write(System.lineSeparator());
+	public boolean addStudentsinFile(Student student) throws IOException {
+		try (FileWriter writer = new FileWriter("./txtDb/" + FileManagementsDao.getFileName(), true);
+				BufferedWriter bufferedWriter = new BufferedWriter(writer)) {
+			bufferedWriter.write(student.toString());
+			bufferedWriter.write(System.lineSeparator());
 
 		} catch (IOException e) {
 			e.printStackTrace();
+			throw e;
 		}
 
+		return true;
 	}
 
 }

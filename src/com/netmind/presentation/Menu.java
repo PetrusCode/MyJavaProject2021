@@ -64,12 +64,15 @@ public class Menu {
 
 		System.out.println("Apellido");
 		student.setSurname(scanner.nextLine());
-		System.out.println("Introduce fecha de nacimiento");
+		System.out.println("Introduce fecha de nacimiento - (yyyy-mm-dd)");
 
 		student.setDateOfBirth(LocalDate.parse(scanner.nextLine()));
-		System.out.println("Introduce nombre del archivo");
+		System.out.println("Introduce nombre del archivo (.txt, .json, .xml...or default");
+
 		try {
+
 			FileManagementsDao.addTxtStudent("./txtDb/" + scanner.nextLine());
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

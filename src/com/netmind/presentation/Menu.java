@@ -17,6 +17,7 @@ public class Menu {
 	public static void studentMenu() throws IOException {
 		StudentBl studentBl = new StudentBl();
 		Scanner scanner = new Scanner(System.in);
+		EnumStudent enumStudent = null;
 		int opcion = 0;
 
 		do {
@@ -31,7 +32,7 @@ public class Menu {
 				System.out.println("Introduzca un numero " + e);
 
 			}
-			EnumStudent enumStudent = EnumStudent.values()[opcion];
+			enumStudent = EnumStudent.desdeValue(opcion);
 			switch (enumStudent) {
 
 				case ADD_STUDENT:
@@ -49,7 +50,7 @@ public class Menu {
 				default:
 					break;
 			}
-		} while (opcion != EnumStudent.EXIT.ordinal());
+		} while (opcion != EnumStudent.EXIT.value());
 		System.out.println("Salir");
 		scanner.close();
 	}

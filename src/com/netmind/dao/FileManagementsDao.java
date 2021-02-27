@@ -29,4 +29,8 @@ public class FileManagementsDao {
 		}
 		return ifFileIsCreated;
 	}
+
+	public static String getFileName() {
+		return file.getName();
+	}
 }

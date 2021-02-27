@@ -3,6 +3,7 @@ package com.netmind.presentation;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -65,12 +66,7 @@ public class Menu {
 		student.setSurname(scanner.nextLine());
 		System.out.println("Introduce fecha de nacimiento");
 
-		try {
-			student.setDateOfBirth(new SimpleDateFormat("dd/MM/yyyy").parse(scanner.nextLine()));
-		} catch (ParseException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
+		student.setDateOfBirth(LocalDate.parse(scanner.nextLine()));
 		System.out.println("Introduce nombre del archivo");
 		try {
 			FileManagementsDao.addTxtStudent("./txtDb/" + scanner.nextLine());

@@ -22,10 +22,9 @@ public class StudentBl {
 
 	}
 
-	public static int calculaAge(Date dateOfBirth) {
+	public static int calculaAge(LocalDate dateOfBirth) {
 
-		Period edad = Period.between(dateOfBirth.toInstant().atZone(ZoneId.systemDefault()).toLocalDate(),
-				LocalDate.now());
+		Period edad = Period.between(dateOfBirth, LocalDate.now());
 
 		return edad.getYears();
 

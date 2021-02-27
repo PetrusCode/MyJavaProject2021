@@ -50,7 +50,8 @@ public class Student extends NetmindObject {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public Student(Integer idStudent, String name, String surname, Integer age, Date dateOfBirth) {
+	public Student(Integer idStudent, String name, String surname, Integer age,
+			Date dateOfBirth) {
 		super();
 		this.idStudent = idStudent;
 		this.name = name;
@@ -83,10 +84,12 @@ public class Student extends NetmindObject {
 	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + ((age == null) ? 0 : age.hashCode());
-		result = prime * result + ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
-		result = prime * result + ((idStudent == null) ? 0 : idStudent.hashCode());
+		result = prime * result
+				+ ((dateOfBirth == null) ? 0 : dateOfBirth.hashCode());
+		result = prime * result
+				+ ((idStudent == null) ? 0 : idStudent.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((surname == null) ? 0 : surname.hashCode());
 		return result;
@@ -96,7 +99,7 @@ public class Student extends NetmindObject {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (getClass() != obj.getClass())
 			return false;

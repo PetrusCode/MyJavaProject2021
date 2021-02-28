@@ -31,6 +31,7 @@ public class StudentDao {
 	}
 
 	public boolean addStudentsinFile(Student student) throws IOException {
+
 		try (FileWriter writer = new FileWriter(
 				"./txtDb/" + FileManagementsDao.getFileName(), true);
 				BufferedWriter bufferedWriter = new BufferedWriter(writer)) {

@@ -15,13 +15,6 @@ public class NetmindObject {
 		this.uuid = uuid;
 	}
 
-	/**
-	 * @return the uuid
-	 */
-	public UUID getUuid() {
-		return uuid;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -45,6 +38,13 @@ public class NetmindObject {
 		} else if (!uuid.equals(other.uuid))
 			return false;
 		return true;
+	}
+
+	/**
+	 * @return the uuid
+	 */
+	public UUID getUuid() {
+		return uuid;
 	}
 
 }

@@ -13,12 +13,13 @@ public class FileManagementsDao {
 		boolean ifFileIsCreated = false;
 		file = new File(Filename);
 
-		if (file.exists()) {
-			System.out.println("Ya existe el archivo" + Filename);
+		if (!file.exists()) {
+			System.out.println("Se ha creado el archivo" + Filename);
 
 		} else {
 			try {
-				System.out.println("Se ha añadido un nuevo registro");
+				System.out
+						.println("Se ha agregado un nuevo registro" + Filename);
 				ifFileIsCreated = file.createNewFile();
 
 			} catch (IOException e) {
